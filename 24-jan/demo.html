@@ -1,0 +1,26 @@
+<!DOCUMENT HTML>
+<html>
+<head>
+<title>first name</title>
+<script>
+    function validate()
+{
+var res=document.getElementById("ph").value
+var t=/^[6-9]{1}[0-9]{9}$/.test(res)
+if(t==false)
+{document.getElementById("msg").innerHTML="Invalid"
+document.getElementById("ph").style.border="2px solid red"
+return false
+}
+
+</script>
+</head>
+<body>
+<form onsubmit="return validate()" action="https://kodnest.com">
+First name:<input type="text" id="ph">
+<span id="msg" style="color:red;">*</span><br><br>
+<input type="submit" value="SUBMIT")/>
+</form>
+
+</body>
+</html> 

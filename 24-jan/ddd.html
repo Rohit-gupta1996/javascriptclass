@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <script>
+return validateForm()
+{var gender = document.contactForm.gender.value;
+    if(gender == "") {
+        printError("genderErr", "Please select your gender");
+    } else {
+        printError("genderErr", "");
+        genderErr = false;
+        document.write(gender)
+    }
+}
+    </script>
+</head>
+<body>
+    <form name="contactForm" onsubmit="return validateForm()"  method="post">
+    <label>Gender</label>
+    <div class="form-inline">
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+       
+    </div>
+    <div class="error" id="genderErr"></div>
+    <input type="submit" value="Submit">
+</div>
+</form>
+</body>
+</html>

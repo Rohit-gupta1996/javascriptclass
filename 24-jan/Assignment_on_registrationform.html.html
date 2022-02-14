@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login page</title>
+    <script>
+        Submit = () => {
+  var fname = document.getElementById("fname").value;
+  var lname = document.getElementById("lname").value;
+  var number = document.getElementById("number").value;
+  var email = document.getElementById("email").value;
+  var dob = document.getElementById("dob").value;
+
+  //  start of name validation
+  if (fname == "" || lname == "") {
+    alert("Please provide your full name!");
+    return false;
+  } else {
+    var nameErr = true;
+  }
+  //   end of name validation
+
+  // start of email validation
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    var emailErr = true;
+  } else {
+    alert("enter valid email");
+  }
+  //   end of email validation
+
+  // start of number validation
+  if (/^[6-9]\d{9}$/.test(number)) {
+    var numErr = true;
+  } else {
+    alert("Enter valid number");
+  }
+  // end of number validation
+
+  // start of dob validation
+  var year = Number(dob.substr(0, 4));
+  var month = Number(dob.substr(5, 2));
+  var day = Number(dob.substr(8, 2));
+  var today = new Date();
+  var age = today.getFullYear() - year;
+  if (
+    today.getMonth() < month ||
+    (today.getMonth() == month && today.getDate() < day)
+  ) {
+    age--;
+  }
+  if (age >= 18) {
+    var ageErr = true;
+  } else {
+    alert("You are under 18");
+  }
+
+  //   end of number validation
+  var gen22 = "";
+  if (document.getElementById("genMale").checked) {
+    gen22 = document.getElementById("genMale").value;
+  } else if (document.getElementById("genFemale").checked) {
+    gen22 = document.getElementById("genFemale").value;
+  } else {
+    gen22 = document.getElementById("genOther").value;
+  }
+
+  // end of gender validation
+
+  // Writing all the information
+  if (nameErr == true && emailErr == true && numErr == true && ageErr == true) {
+    alert(
+      "Confirm the Information \n Name: " +
+        fname +
+        " " +
+        lname +
+        "\n Email: " +
+        email +
+        "\n Phone No: " +
+        number +
+        "\n Date of Birth: " +
+        dob +
+        "\n Gender: " +
+        gen22
+    );
+  }
+  // end of writing all th info.
+  let user=new Set();
+user.add(fname)
+user.add(lname)
+user.add(email)
+user.add(number)
+user.add(dob)
+user.add(gen22)
+//set
+console.log(user)
+//for each
+user.forEach(n=>{
+console.log(n);
+});
+//has
+console.log(user.has("Rohit"))
+};
+    </script>
+    <style>
+        h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dotted black;
+  margin: auto;
+  margin-left: 35%;
+  margin-right: 35%;
+  background-color: #1877f2;
+  border-radius: 8%;
+}
+button {
+  background-color: black;
+  color: white;
+  border-radius: 24%;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>
+        <mark><ins>Signup</ins></mark>
+      </h1>
+      <form name="simpleForm">
+        <br />
+        <input type="text" id="fname" placeholder="firstname" required /><br />
+
+        <input type="text" id="lname" placeholder="lastname" required /><br />
+
+        <input type="email" id="email" placeholder="email " required /><br />
+
+        <input type="number" id="number" placeholder="number" /><br />
+
+        <label>Date Of Birth</label><br />
+        <input type="Date" id="dob" /><br />
+
+        <label>Gender</label><br />
+        <div>
+          <input type="radio" name="gender" id="genMale" value="Male" />male
+          <input
+            type="radio"
+            name="gender"
+            id="genFemale"
+            value="Female"
+          />female
+          <input type="radio" name="gender" id="genOther" value="Other" />other
+        </div>
+        <p>
+          By clicking Sign Up, you agree to our Terms, Data Policy and Cookie
+          Policy. You may receive SMS notifications from us and can opt out at
+          any time.
+        </p>
+        <input type="button" onclick="Submit()" value="Sign up" />
+      </form>
+    </div>
+  </body>
+</html>

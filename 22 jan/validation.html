@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <title>Validation</title>
+<head>
+    <script>
+		var a = prompt("Enter the first number");
+		var b = prompt("Enter the second number");
+        var c = prompt("Enter the third number");
+		a = parseInt(a);
+		b = parseInt(b);
+        c = parseInt(c);
+		if (a>b&&a>c)
+			document.write(a + "is greater than " + b + " and "+ a + " is greater than " + c);
+		else if (b>a&&b>c)
+			document.write(b + " is greater than " + a + " and "+ b + " is greater than " + c);
+        else if (c>a&&c>a)
+			document.write(c + " is greater than " + a + " and "+ c + " is greater than " + b);
+		else
+			document.write(a + " is equal to " + b + " and " + c);
+	</script>  
+</head>
+<body>
+    
+</body>
+</html>
